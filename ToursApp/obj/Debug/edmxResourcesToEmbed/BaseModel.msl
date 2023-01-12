@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище toursBaseModelContainer" CdmEntityContainer="toursEntities">
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="toursBaseModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hotels">
+      <EntityTypeMapping TypeName="toursBaseModel.Hotel">
+        <MappingFragment StoreEntitySet="Hotel">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountOfStars" ColumnName="CountOfStars" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HotelComments">
+      <EntityTypeMapping TypeName="toursBaseModel.HotelComment">
+        <MappingFragment StoreEntitySet="HotelComment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Hotelld" ColumnName="Hotelld" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hotelimages">
+      <EntityTypeMapping TypeName="toursBaseModel.Hotelimage">
+        <MappingFragment StoreEntitySet="Hotelimage">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Hotelld" ColumnName="Hotelld" />
+          <ScalarProperty Name="ImageSource" ColumnName="ImageSource" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tours">
+      <EntityTypeMapping TypeName="toursBaseModel.Tour">
+        <MappingFragment StoreEntitySet="Tour">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="TicketCount" ColumnName="TicketCount" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ImagePreview" ColumnName="ImagePreview" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="isActual" ColumnName="isActual" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Types">
+      <EntityTypeMapping TypeName="toursBaseModel.Type">
+        <MappingFragment StoreEntitySet="Type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="TourOfHotel" TypeName="toursBaseModel.TourOfHotel" StoreEntitySet="TourOfHotel">
+      <EndProperty Name="Hotel">
+        <ScalarProperty Name="id" ColumnName="HotelId" />
+      </EndProperty>
+      <EndProperty Name="Tour">
+        <ScalarProperty Name="id" ColumnName="TourId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TypeOfTour" TypeName="toursBaseModel.TypeOfTour" StoreEntitySet="TypeOfTour">
+      <EndProperty Name="Tour">
+        <ScalarProperty Name="id" ColumnName="TourId" />
+      </EndProperty>
+      <EndProperty Name="Type">
+        <ScalarProperty Name="id" ColumnName="TypeId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
